@@ -1,12 +1,13 @@
 import { signal } from "@preact/signals-core";
 
 type TokenClient = google.accounts.oauth2.TokenClient;
+type TokenResponse = google.accounts.oauth2.TokenResponse;
 
-const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-const SCOPES = import.meta.env.VITE_GOOGLE_SCOPE;
+const CLIENT_ID: string = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+const SCOPE = "https://mail.google.com/";
 
 const authClient = signal<TokenClient | null>(null);
-const accessToken = signal<string | null>(null);
+const tokenResponse = signal<TokenResponse | null>(null);
 
 const init = (): Promise<TokenClient> =>
   new Promise((resolve, reject) => {
@@ -23,9 +24,9 @@ const init = (): Promise<TokenClient> =>
     script.onload = () => {
       const client = google.accounts.oauth2.initTokenClient({
         client_id: CLIENT_ID,
-        scope: SCOPES,
+        scope: SCOPE,
         callback: (response) => {
-          accessToken.value = response.access_token;
+          tokenResponse.value = response;
         },
         error_callback: (error) => {
           // authorization error
@@ -58,5 +59,13 @@ const requestToken = () => {
 export default {
   init,
   requestToken,
-  accessToken,
+  get accessToken() {
+    return tokenResponse.value?.access_token;
+  },
+  get hasGrantedAccess() {
+    return (
+      !!tokenResponse.value &&
+      google.accounts.oauth2.hasGrantedAllScopes(tokenResponse.value, SCOPE)
+    );
+  },
 };
