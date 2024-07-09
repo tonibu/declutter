@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@preact/signals-core':
+    specifier: ^1.7.0
+    version: 1.7.0
   '@preact/signals-react':
     specifier: ^2.0.2
     version: 2.0.2(react@18.3.1)
@@ -19,6 +22,9 @@ devDependencies:
   '@preact/signals-react-transform':
     specifier: ^0.3.1
     version: 0.3.1(@babel/core@7.24.7)(react@18.3.1)
+  '@types/google.accounts':
+    specifier: ^0.0.14
+    version: 0.0.14
   '@types/react':
     specifier: ^18.2.66
     version: 18.3.3
@@ -601,8 +607,8 @@ packages:
       fastq: 1.17.1
     dev: true
 
-  /@preact/signals-core@1.6.1:
-    resolution: {integrity: sha512-KXEEmJoKDlo0Igju/cj9YvKIgyaWFDgnprShQjzimUd5VynAAdTWMshawEOjUVeKbsI0aR58V6WOQp+DNcKApw==}
+  /@preact/signals-core@1.7.0:
+    resolution: {integrity: sha512-bEZLgmJGSBVP5PUPDowhPW3bVdMmp9Tr5OEl+SQK+8Tv9T7UsIfyN905cfkmmeqw8z4xp8T6zrl4M1uj9+HAfg==}
 
   /@preact/signals-react-transform@0.3.1(@babel/core@7.24.7)(react@18.3.1):
     resolution: {integrity: sha512-30wip3FKvXciDlUpd3XkGu+HOCYKV9GD4W3ELDceqK1OWysjryph/pbKW+ZcAVx5WzQTFcdkobhP+AjN6piauw==}
@@ -626,7 +632,7 @@ packages:
     peerDependencies:
       react: ^16.14.0 || 17.x || 18.x
     dependencies:
-      '@preact/signals-core': 1.6.1
+      '@preact/signals-core': 1.7.0
       react: 18.3.1
       use-sync-external-store: 1.2.2(react@18.3.1)
 
@@ -789,6 +795,10 @@ packages:
 
   /@types/estree@1.0.5:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
+    dev: true
+
+  /@types/google.accounts@0.0.14:
+    resolution: {integrity: sha512-HqIVkVzpiLWhlajhQQd4rIV7czanFvXblJI2J1fSrL+VKQuQwwZ63m35D/mI0flsqKE6p/hNrAG0Yn4FD6JvNA==}
     dev: true
 
   /@types/prop-types@15.7.12:
