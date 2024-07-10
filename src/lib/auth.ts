@@ -39,7 +39,6 @@ const init = (): Promise<TokenClient> =>
     };
 
     script.onerror = (error) => {
-      console.log(error);
       reject(error);
     };
 
